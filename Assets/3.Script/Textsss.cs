@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Text : Sentence
+public class Textsss : Sentence
 {
     Object Control_Obj;
 

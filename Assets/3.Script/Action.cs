@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Action : Sentence
 {
-    Text text;
+    Textsss text;
 
     private void Start()
     {
@@ -13,13 +13,13 @@ public class Action : Sentence
     }
     void Update()
     {
-        text = new Text();
+        text = new Textsss();
         hit_left = Physics2D.Raycast(transform.position + Vector3.left, Vector3.right, 0.1f, LayerMask.GetMask("Is"));
         hit_up = Physics2D.Raycast(transform.position + Vector3.up, Vector3.down, 0.1f, LayerMask.GetMask("Is"));
 
 
-        if (hit_up.collider != null) text = hit_up.collider.GetComponent<Text>();
-        else if (hit_left.collider != null) text = hit_left.collider.GetComponent<Text>();
+        if (hit_up.collider != null) text = hit_up.collider.GetComponent<Textsss>();
+        else if (hit_left.collider != null) text = hit_left.collider.GetComponent<Textsss>();
         if (text.isSentence_width && hit_left.collider !=null) Color_Change(spriterenderer, 1);
         else if (text.isSentence_length && hit_up.collider !=null) Color_Change(spriterenderer, 1);
         else Color_Change(spriterenderer, 0.45f);

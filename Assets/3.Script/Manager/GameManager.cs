@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        MainBGM.clip = AudioManager.instance.BGMClip[(int)BGMClip.Stage1];
+        MainBGM.clip = AudioManager.instance._bgmClips[(int)BGMClip.Stage1];
         MainBGM.Play();
     }
 }

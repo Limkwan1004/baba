@@ -21,11 +21,12 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance = null;
 
-    public AudioClip[] BGMClip;
+    public AudioClip[] _bgmClips;
 
-    public AudioSource[] SFXPanel;
+    public AudioClip[] _sfxClips;
 
-    public AudioClip[] SFXClip;
+    public AudioSource[] _sfxPanel;
+    public AudioSource[] _bgmPanel;
 
     private void Awake()
     {
