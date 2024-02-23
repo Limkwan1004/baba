@@ -2,24 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveObj : MonoBehaviour
+public class SubjectMove : MonoBehaviour
 {
     private Animator _animator;
 
-    [SerializeField] private float _moveSpeed = 7f;
-
+    private float _moveSpeed = 7f;
     private bool isMove = false;
 
     private IEnumerator _moveTemp;
 
-    private void Start()
+    private void Awake()
     {
         TryGetComponent(out _animator);
-    }
-
-    private void Update()
-    {
-        MoveTile();
     }
 
     public void MoveTile()
