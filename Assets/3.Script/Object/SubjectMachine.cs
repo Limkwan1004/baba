@@ -13,26 +13,25 @@ public enum Subject_Type
 
 }
 
-public class SubjectMachine : MonoBehaviour, Istate
+public class SubjectMachine : MonoBehaviour
 {
-    private SubjectMove _subjectMove;
+    private SubjectActive _subjectact;
     public Subject_Type subject_Type;
 
     private void Awake()
     {
-        TryGetComponent(out _subjectMove);
+        OnEnter();
     }
 
     private void Update()
     {
-        OnUpdate();
+        _subjectact.OnUpdate();
     }
 
     public void Change_Subject_Type(Subject_Type start_type)
     {
         if (subject_Type.Equals(start_type)) return;
 
-        OnExit();
         subject_Type = start_type;
         OnEnter();
     }
@@ -46,9 +45,9 @@ public class SubjectMachine : MonoBehaviour, Istate
             case Subject_Type.Defeat:
                 break;
             case Subject_Type.You:
+                _subjectact = GetComponent<SubjectYou>();
                 break;
             case Subject_Type.Move:
-                _subjectMove.MoveTile();
                 break;
             case Subject_Type.Push:
                 break;
@@ -59,49 +58,7 @@ public class SubjectMachine : MonoBehaviour, Istate
         }
     }
 
-    public void OnExit()
-    {
-        switch (subject_Type)
-        {
-            case Subject_Type.Win:
-                break;
-            case Subject_Type.Defeat:
-                break;
-            case Subject_Type.You:
-                break;
-            case Subject_Type.Move:
-                _subjectMove.MoveTile();
-                break;
-            case Subject_Type.Push:
-                break;
-            case Subject_Type.Stop:
-                break;
-            default:
-                break;
-        }
-    }
-
-    public void OnUpdate()
-    {
-        switch (subject_Type)
-        {
-            case Subject_Type.Win:
-                break;
-            case Subject_Type.Defeat:
-                break;
-            case Subject_Type.You:
-                break;
-            case Subject_Type.Move:
-                _subjectMove.MoveTile();
-                break;
-            case Subject_Type.Push:
-                break;
-            case Subject_Type.Stop:
-                break;
-            default:
-                break;
-        }
-    }
+   
 
 
 
